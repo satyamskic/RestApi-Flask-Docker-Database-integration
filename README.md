@@ -96,9 +96,14 @@ haproxy:
 
 # ansible playbook
 - There is three task which is creating with the help of Ansible playbook. It's basically doing three things
+- 
 a) Installing docker
+
 b) Installing docker-compose to run docker-compose.yml file
+
 c) Triggers the `docker-compose.yml` file
+
+
 - It's using inventory file.
 ```
 - name: Run with inline v2 compose
