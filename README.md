@@ -123,7 +123,7 @@ c) Triggers the `docker-compose.yml` file
         docker-compose up -d
 ```
 
-### Note
+## Note
 First clean docker environment before deploying your application using the Jenkins. Use below command to cleanup the environment at same path where your `docker-compose.yml` file located.
 ```
 docker-compose kill
@@ -132,11 +132,8 @@ docker rmi -f $(docker images -a -q)
 
 ```
 # Jenkins Integration
+After cleanup your environment trigger the Jenkins job eighter manually or using any triggers depends on you. It will deploy entire infrastructure.
 
-Here Jenkins are used as
-- Building application
-- Testing application
-- Deploying application
 
 
 
