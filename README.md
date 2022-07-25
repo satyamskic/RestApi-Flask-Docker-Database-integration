@@ -132,7 +132,7 @@ docker rmi -f $(docker images -a -q)
 
 ```
 # Jenkins Integration
-After cleanup your environment trigger the Jenkins job eighter manually or using any triggers depends on you. It will deploy entire infrastructure.
+After cleanup your environment trigger the Jenkins job eighter manually or using any triggers depending on your requirnment. It will deploy entire infrastructure.
 
 
 
