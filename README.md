@@ -33,9 +33,40 @@ In above project, MySQL database contaier deployed directly from docker-compose.
             - backend
 ```
 ## API Gateway
-Haproxy are used as a API Gateway(loadbalancer). When any users from internet hit loadbalancer IP address then it's redirect traffic to the frontend application. Configuration file of haproxy is located at `haproxy/haproxy.cfg file`.
+Haproxy are used as a API Gateway(loadbalancer). When any users from internet hit loadbalancer IP address then it's redirect traffic to the frontend application. 
 
+Few points needs to be note........
+
+- Configuration file of haproxy is located at `haproxy/haproxy.cfg file`.
+- There is three frontend server name are (weba, webb, webc) which is creating directly from the `docker-compose.yml` file and adding it's links to haproxy links section. 
+- After that exposing haproxy to port no 8888 and 70. 
 ```
+haproxy:
+        image: haproxy:1.6
+        volumes:
+            - ./haproxy:/haproxy-override
+            - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+        links:
+            - weba
+            - webb
+            - webc
+        ports:
+            - "8888:80"
+            - "70:70" 
+    weba:
+        build: ./frontend
+        expose:
+            - 80
+
+    webb:
+        build: ./frontend
+        expose:
+            - 80
+  
+    webc:
+        build: ./frontend
+        expose:
+            - 80
 ```
 
 
