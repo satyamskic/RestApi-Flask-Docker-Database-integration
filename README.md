@@ -94,5 +94,27 @@ haproxy:
             - 80
 ```
 
+# ansible playbook
+- There is three task which is creating with the help of Ansible playbook. It's basically doing three things
+a) Installing docker
+b) Installing docker-compose to run docker-compose.yml file
+c) Triggers the `docker-compose.yml` file
 
+```
+- name: Run with inline v2 compose
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: install docker
+      apt:
+        name: docker.io
+        state: present
+    - name: install docker compose
+      pip:
+        name: docker-compose
+        state: present
+    - name: deploy app with docker compose
+      shell: |
+        docker-compose up -d
+```
 
