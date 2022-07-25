@@ -16,7 +16,7 @@ CMD ["main.py"]
 2. Deploying backend application using `docker-compose.yml` file. 
 
 Few points needs to be noted........
-- Here backend code are located at app folder. 
+- Here backend code are located inside app folder. 
 - It's uses the similar network as databse have. 
 - Exposing backend at port no 5000.
 
