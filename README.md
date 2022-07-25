@@ -99,7 +99,7 @@ haproxy:
 a) Installing docker
 b) Installing docker-compose to run docker-compose.yml file
 c) Triggers the `docker-compose.yml` file
-
+- It's using inventory file.
 ```
 - name: Run with inline v2 compose
   hosts: localhost
