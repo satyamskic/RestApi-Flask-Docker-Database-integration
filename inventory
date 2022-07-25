@@ -1,0 +1,2 @@
+[host]
+server1 ansible_host=localhost ansible_user=ubuntu

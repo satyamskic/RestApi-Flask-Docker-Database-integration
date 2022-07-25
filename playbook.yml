@@ -1,0 +1,15 @@
+- name: Run with inline v2 compose
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: install docker
+      apt:
+        name: docker.io
+        state: present
+    - name: install docker compose
+      pip:
+        name: docker-compose
+        state: present
+    - name: deploy app with docker compose
+      shell: |
+        docker-compose up -d
