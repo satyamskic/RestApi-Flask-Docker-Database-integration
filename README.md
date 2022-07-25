@@ -1,7 +1,7 @@
 # RestApi-Flask-Docker-Database-integration
 
-## Frontend
-First create Dockerfile which creates the python image for deploy frontend application.
+## Backend
+1. First creating Dockerfile which creates the python image for deploy backend application.
 ```
 FROM python:latest
 COPY ./app /app
@@ -12,8 +12,30 @@ EXPOSE 5000
 ENTRYPOINT ["python"]
 CMD ["main.py"]
 
+2. Deploying backend application using `docker-compose.yml` file. 
+- Here backend code are located at app folder. 
+- It's uses the similar network as databse have. 
+
+
 ```
-## Backend
+    flask-app:
+        container_name: flask-app
+        build: ./
+        restart: always
+        links:
+            - mysql-db
+        ports:
+            - '5000:5000'
+        volumes:
+            - ./app:/app
+        networks:
+            - backend
+        depends_on:
+            - mysql-db
+```
+
+
+## Database
 In above project, MySQL database contaier deployed directly from docker-compose.yml file.  
 ```
   mysql-db:
